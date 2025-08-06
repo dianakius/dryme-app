@@ -1,9 +1,9 @@
-import Message from "./assets/Message";
+import ListGroup from "./components/ListGroup";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello, World!</h1>
+    <div>
+      <ListGroup />
     </div>
   );
 }
