@@ -1,6 +1,9 @@
 import TowelsCard from "../../components/TowelsCard";
+import { useState } from "react";
 
 function Home() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const towels = [
     {
       id: 1,
@@ -22,8 +25,22 @@ function Home() {
     },
   ];
 
+  const handleSearch = () => {};
+
   return (
     <div className="home">
+      <form onSubmit={handleSearch} className="search-form">
+        <input
+          type="text"
+          placeholder="Search for towels..."
+          className="search-input"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button type="submit" className="search-button">
+          Search
+        </button>
+      </form>
       <div className="home-header">
         {towels.map((towel) => (
           <TowelsCard towels={towel} key={towel.id} />
