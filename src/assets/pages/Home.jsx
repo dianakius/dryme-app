@@ -25,7 +25,11 @@ function Home() {
     },
   ];
 
-  const handleSearch = () => {};
+  const handleSearch = (e) => {
+    e.preventDefault();
+    alert(searchQuery);
+    setSearchQuery(""); // Clear the search input after submission
+  };
 
   return (
     <div className="home">
