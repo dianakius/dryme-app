@@ -1,8 +1,4 @@
-type Towels = {
-  name: string;
-  url: string;
-  description: string;
-};
+import React from "react";
 
 <TowelsCard
   towels={{
@@ -12,7 +8,7 @@ type Towels = {
   }}
 />;
 
-function TowelsCard({ towels }: { towels: Towels }) {
+function TowelsCard({ towels }) {
   function onFavoriteClick() {
     alert("clicked");
     console.log(`Added ${towels.name} to favorites`);
