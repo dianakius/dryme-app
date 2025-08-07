@@ -3,11 +3,34 @@ import TowelsCard from "./components/TowelsCard";
 import "./App.css";
 
 function App() {
+
+   
   return (
     <>
       <TowelsCard
         towels={{
-          title: "Soft Cotton Towel",
+          name: "Soft Cotton Towel",
+          url: "https://example.com/towel.jpg",
+          description: "A soft and absorbent cotton towel.",
+        }}
+      />
+        <TowelsCard
+        towels={{
+          name: "Soft Cotton Towel",
+          url: "https://example.com/towel.jpg",
+          description: "A soft and absorbent cotton towel.",
+        }}
+      />
+        <TowelsCard
+        towels={{
+          name: "Soft Cotton Towel",
+          url: "https://example.com/towel.jpg",
+          description: "A soft and absorbent cotton towel.",
+        }}
+      />
+        <TowelsCard
+        towels={{
+          name: "Soft Cotton Towel",
           url: "https://example.com/towel.jpg",
           description: "A soft and absorbent cotton towel.",
         }}
