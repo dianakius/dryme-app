@@ -46,9 +46,12 @@ function Home() {
         </button>
       </form>
       <div className="home-header">
-        {towels.map((towel) => (
-          <TowelsCard towels={towel} key={towel.id} />
-        ))}
+        {towels.map(
+          (towels) =>
+            towels.name.toLowerCase().startsWith(searchQuery) && (
+              <TowelsCard towels={towels} key={towels.id} />
+            )
+        )}
       </div>
     </div>
   );
