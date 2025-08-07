@@ -1,6 +1,7 @@
 import TowelsCard from "../../components/TowelsCard";
 import { useState } from "react";
 
+
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
 
