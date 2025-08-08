@@ -1,4 +1,4 @@
-import React from "react";
+import "../css/TowelsCard.css";
 
 <TowelsCard
   towels={{
