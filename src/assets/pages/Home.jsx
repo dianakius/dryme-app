@@ -1,38 +1,30 @@
+import { useEffect, useState } from "react";
 import TowelsCard from "../../components/TowelsCard";
-import { useState } from "react";
+import { getAllTowels } from "../../services/api"; 
 import "../../css/Home.css";
-
-
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [towels, setTowels] = useState([]); // ✅ Store towels from API or mock data
 
-  const towels = [
-    {
-      id: 1,
-      name: "Soft Cotton Towel",
-      url: "https://example.com/towel1.jpg",
-      description: "A soft and absorbent cotton towel.",
-    },
-    {
-      id: 2,
-      name: "Quick-Dry Towel",
-      url: "https://example.com/towel2.jpg",
-      description: "A quick-drying towel perfect for travel.",
-    },
-    {
-      id: 3,
-      name: "Silk Towel",
-      url: "https://example.com/towel3.jpg",
-      description: "A luxurious silk towel for a luxurious experience.",
-    },
-  ];
+  
+  useEffect(() => {
+    const fetchTowels = async () => {
+      const data = await getAllTowels();
+      setTowels(data);
+    };
+
+    fetchTowels();
+  }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    alert(searchQuery);
-    setSearchQuery(""); // Clear the search input after submission
+    // Search input will update automatically via state
   };
+
+  const filteredTowels = towels.filter((towel) =>
+    towel.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="home">
@@ -48,13 +40,11 @@ function Home() {
           Search
         </button>
       </form>
+
       <div className="home-header">
-        {towels.map(
-          (towels) =>
-            towels.name.toLowerCase().startsWith(searchQuery) && (
-              <TowelsCard towels={towels} key={towels.id} />
-            )
-        )}
+        {filteredTowels.map((towel) => (
+          <TowelsCard towels={towel} key={towel.id} />
+        ))}
       </div>
     </div>
   );
